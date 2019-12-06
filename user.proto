@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package user;
+package usercontroller;
 
 import "validator.proto";
 import "method_option.proto";
