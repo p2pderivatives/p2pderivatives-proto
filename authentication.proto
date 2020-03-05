@@ -10,7 +10,9 @@ service Authentication {
         option (pbbase.option_base).ignore_token_verify = true;
     }
 
-    rpc Refresh (RefreshRequest) returns (RefreshResponse) {}
+    rpc Refresh (RefreshRequest) returns (RefreshResponse) {
+        option (pbbase.option_base).ignore_token_verify = true;
+    }
 
     rpc Logout(LogoutRequest) returns (Empty) {}
 }
