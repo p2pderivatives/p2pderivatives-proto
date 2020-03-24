@@ -10,10 +10,6 @@ service User {
         option (pbbase.option_base).ignore_token_verify = true;
     }
 
-    rpc GetUserStatuses(Empty) returns (stream UserNotice) {
-        option (pbbase.option_base).tx_option = ReadOnly;
-    }
-
     rpc GetUserList(Empty) returns (stream UserInfo) {
         option (pbbase.option_base).tx_option = ReadOnly;
     }
@@ -38,16 +34,4 @@ message UserRegisterResponse {
 }
 
 message UnregisterUserRequest {
-}
-
-message UserNotice {
-    string name = 1;
-    UserStatus status = 2;
-}
-
-enum UserStatus {
-    CONNECTED = 0;
-    DISCONNECTED = 1;
-    REGISTERED = 2;
-    UNREGISTERED = 3;
 }
