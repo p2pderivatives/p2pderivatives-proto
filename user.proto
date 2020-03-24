@@ -10,6 +10,18 @@ service User {
         option (pbbase.option_base).ignore_token_verify = true;
     }
 
+    rpc GetConnectedUsers(Empty) returns (stream UserInfo) {
+        option (pbbase.option_base).tx_option = ReadOnly;
+    }
+
+    rpc ReceiveDlcMessages(Empty) returns (stream DlcMessage) {
+        option (pbbase.option_base).tx_option = ReadOnly;
+    }
+
+    rpc SendDlcMessage(DlcMessage) returns (Empty) {
+        option (pbbase.option_base).tx_option = ReadOnly;
+    }
+
     rpc GetUserList(Empty) returns (stream UserInfo) {
         option (pbbase.option_base).tx_option = ReadOnly;
     }
@@ -34,4 +46,10 @@ message UserRegisterResponse {
 }
 
 message UnregisterUserRequest {
+}
+
+message DlcMessage {
+    string dest_name = 1;
+    string org_name = 2;
+    bytes payload = 3;
 }
