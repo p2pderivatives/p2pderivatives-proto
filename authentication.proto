@@ -15,6 +15,8 @@ service Authentication {
     }
 
     rpc Logout(LogoutRequest) returns (Empty) {}
+
+    rpc UpdatePassword(UpdatePasswordRequest) returns (Empty) {}
 }
 
 message Empty {}
@@ -46,4 +48,9 @@ message RefreshResponse {
 
 message LogoutRequest {
     string refresh_token = 1 [(validator.field) = {string_not_empty: true}];
+}
+
+message UpdatePasswordRequest {
+    string new_password = 1;
+    string old_password = 2;
 }
