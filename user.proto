@@ -5,6 +5,8 @@ package usercontroller;
 import "validator.proto";
 import "method_option.proto";
 
+option go_package = "p2pderivatives-server/internal/user/usercontroller";
+
 service User {
     rpc RegisterUser(UserRegisterRequest) returns (UserRegisterResponse) {
         option (pbbase.option_base).ignore_token_verify = true;
