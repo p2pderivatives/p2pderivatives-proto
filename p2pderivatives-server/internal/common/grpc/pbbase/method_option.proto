@@ -4,6 +4,8 @@ package pbbase;
 
 import "google/protobuf/descriptor.proto";
 
+option go_package = "pbbase";
+
 extend google.protobuf.MethodOptions {
   OptionBase option_base = 50001;
 }

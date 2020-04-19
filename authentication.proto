@@ -1,9 +1,10 @@
 syntax = "proto3";
 
 package authentication;
+option go_package = "authentication";
 
-import "validator.proto";
-import "method_option.proto";
+import "p2pderivatives-server/internal/common/grpc/pbbase/method_option.proto";
+import "github.com/mwitkow/go-proto-validators/validator.proto";
 
 service Authentication {
     rpc Login(LoginRequest) returns (LoginResponse) {
