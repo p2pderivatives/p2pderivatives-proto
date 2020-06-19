@@ -4,6 +4,8 @@ package pbbase;
 
 import "google/protobuf/descriptor.proto";
 
+option go_package = "p2pderivatives-server/internal/common/grpc/pbbase";
+
 extend google.protobuf.MethodOptions {
   OptionBase option_base = 50001;
 }
